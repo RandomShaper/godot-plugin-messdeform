@@ -1,0 +1,8 @@
+* text eol=lf
+# General
+*.png binary
+# Photoshop
+*.psd binary
+# MakeHuman
+*.mhm binary
+*.thumb binary

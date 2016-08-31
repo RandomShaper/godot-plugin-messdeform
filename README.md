@@ -12,7 +12,7 @@ So currently you can only perform cut-out animation in Godot, which is good for 
 
 ## The project
 
-*MessDeform* is a plugin for Godot that abuses the `Polygon2D` node type trying to work with them as if they were a true 2D mesh. By doing what it achieves continuity of the character image at the joints, where the cut-out technique would disrupt them. 
+*MessDeform* is a plugin for Godot that abuses the `Polygon2D` node type trying to work with a number of them as if they formed a true 2D mesh. By doing what it achieves continuity of the character image at the joints, where the cut-out technique would disrupt them. 
 
 Obviously, *MessDeform* cannot overcome the limitations imposed by the lack of a true deformation system so its results are far from perfect. Anyway for ceratin use case it does the trick: very soft bodies, environments in which the lighting helps in hiding the distortion, etc.
 

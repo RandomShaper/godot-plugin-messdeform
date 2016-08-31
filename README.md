@@ -8,7 +8,7 @@ So currently you can only perform cut-out animation in Godot, which is good for 
 
 ### Cut-out animation vs. animation powered by *MessDeform*
 <img src="https://s9.postimg.io/xhty0xd5b/without_mess_deform.gif" width="256" alt="Cut-out sample"/>
-<img src="https://s9.postimg.io/h5jwb6ytr/with_mess_deform.gif" width="256" alt="Sample powered by MessDeform"/>
+<img src="https://s21.postimg.org/9dsoxez9z/with_mess_deform.gif" width="256" alt="Sample powered by MessDeform"/>
 
 ## The project
 

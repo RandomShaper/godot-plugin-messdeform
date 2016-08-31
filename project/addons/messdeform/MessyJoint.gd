@@ -12,6 +12,7 @@ const CHILD_INDS = [ [ 0, 1 ], [ 3, 2 ] ]
 var parent
 var child
 var parent_sgmt = []
+var parent_sgmt_lngth
 var child_sgmt = []
 
 var ready = false
@@ -71,6 +72,8 @@ func reset():
 		parent_sgmt.push_back(parent.get_uv()[PARENT_INDS[mode_ind][i]])
 		child_sgmt.push_back(child.get_uv()[CHILD_INDS[mode_ind][i]])
 
+	parent_sgmt_lngth = (parent_sgmt[1] - parent_sgmt[0]).length()
+
 	ready = true
 
 func process_joint(out_update_data):
@@ -82,6 +85,9 @@ func process_joint(out_update_data):
 	for node in [child, parent]:
 		if !out_update_data.has(node):
 			out_update_data[node] = {}
+
+	var new_parent_sgmt = []
+	var new_child_sgmt = []
 
 	var mode_ind = 0
 	if inverse: mode_ind = 1
@@ -97,7 +103,26 @@ func process_joint(out_update_data):
 		var excess = current_offs - rest_offs
 
 		# Compute new vertices positions
-		out_update_data[parent][PARENT_INDS[mode_ind][i]] = \
-			parent_sgmt[i] + parent_weight * excess
-		out_update_data[child][CHILD_INDS[mode_ind][i]] = \
-			child_sgmt[i] - (1.0 - parent_weight) * excess.rotated(-child.get_rot())
+		new_parent_sgmt.push_back( \
+			parent_sgmt[i] + parent_weight * excess)
+		new_child_sgmt.push_back( \
+			child_sgmt[i] - (1.0 - parent_weight) * excess.rotated(-child.get_rot()))
+
+	# Opportuinity to refine
+
+	# - Keep the length of the joint segment
+	# (It doesn't matter computing against parent or child)
+	var new_parent_ab = new_parent_sgmt[1] - new_parent_sgmt[0]
+	var grow_coeff = parent_sgmt_lngth / new_parent_ab.length() - 1
+	var grow_vector = grow_coeff * new_parent_ab
+	var parent_grow = parent_weight * grow_vector
+	var child_grow = ((1.0 - parent_weight) * grow_vector).rotated(-child.get_rot())
+	for i in range(2):
+		var sgn = i - 1
+		new_parent_sgmt[i] += sgn * parent_grow
+		new_child_sgmt[i] += sgn * child_grow
+
+	# Store results
+	for i in range(2):
+		out_update_data[parent][PARENT_INDS[mode_ind][i]] = new_parent_sgmt[i]
+		out_update_data[child][CHILD_INDS[mode_ind][i]] = new_child_sgmt[i]

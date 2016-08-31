@@ -45,6 +45,11 @@ func reset():
 
 	ready = false
 
+	var node_parent = get_parent()
+	if !node_parent || !node_parent.has_meta("MessyJointManager"):
+		print(get_name(), " must be child of a MessyJointManager")
+		return
+
 	if parent_path:
 		parent = get_node(parent_path)
 		parent.set_polygon(parent.get_uv())

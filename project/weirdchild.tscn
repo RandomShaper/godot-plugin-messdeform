@@ -345,7 +345,7 @@ tracks/35/keys = { "times":FloatArray( 1, 2 ), "transitions":FloatArray( 1, 1 ),
 [node name="torso" type="Polygon2D" parent="."]
 
 transform/pos = Vector2( 248, 240 )
-polygon = Vector2Array( 218.122, 167.776, 299.557, 145.65, 301.368, 278.643, 218.131, 273.274 )
+polygon = Vector2Array( 217.632, 167.909, 299.557, 145.65, 301.368, 278.643, 216.461, 273.166 )
 uv = Vector2Array( 215, 160, 300, 160, 300, 266, 215, 284 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -362,7 +362,7 @@ invert/border = 100.0
 visibility/behind_parent = true
 transform/pos = Vector2( -4, -57 )
 transform/rot = -86.3537
-polygon = Vector2Array( 406, 284, 444, 284, 442.103, 355.365, 405.852, 363.327 )
+polygon = Vector2Array( 406, 284, 444, 284, 442.103, 355.365, 405.42, 363.422 )
 uv = Vector2Array( 406, 284, 444, 284, 444, 360, 406, 360 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -379,7 +379,7 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( -1, 65 )
 transform/rot = 24.7773
-polygon = Vector2Array( 407.529, 357.041, 443.78, 365.004, 444.081, 419.618, 407.713, 411.915 )
+polygon = Vector2Array( 407.096, 356.946, 443.78, 365.004, 444.081, 419.618, 407.309, 411.829 )
 uv = Vector2Array( 406, 360, 444, 360, 444, 416, 406, 416 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -396,7 +396,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( 6, 56 )
 transform/rot = -23.9188
-polygon = Vector2Array( 406.091, 420.429, 442.459, 412.725, 444, 456, 406, 456 )
+polygon = Vector2Array( 405.687, 420.514, 442.459, 412.725, 444, 456, 406, 456 )
 uv = Vector2Array( 406, 416, 444, 416, 444, 456, 406, 456 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -419,7 +419,7 @@ __meta__ = { "_edit_bone_":true }
 visibility/behind_parent = true
 transform/pos = Vector2( 5, 43 )
 transform/rot = 79.9987
-polygon = Vector2Array( 236.786, 286.978, 276.94, 286.978, 288.742, 364.857, 232.23, 324.733 )
+polygon = Vector2Array( 236.786, 286.978, 276.94, 286.978, 288.742, 364.857, 225.832, 320.191 )
 uv = Vector2Array( 236.786, 286.978, 276.94, 286.978, 300, 348, 215, 348 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -436,7 +436,7 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( 12, 64 )
 transform/rot = -70.7495
-polygon = Vector2Array( 231.285, 371.937, 287.798, 331.814, 299.98, 428.668, 214.983, 429.172 )
+polygon = Vector2Array( 224.888, 376.48, 287.798, 331.814, 299.96, 428.336, 214.966, 429.345 )
 uv = Vector2Array( 215, 348, 300, 348, 300, 429, 215, 429 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -453,7 +453,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -21.0002, 83.0003 )
 transform/rot = 0.680202
-polygon = Vector2Array( 215.019, 428.828, 300.016, 429.332, 300, 442, 215, 442 )
+polygon = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 uv = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
@@ -475,7 +475,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -2, -87 )
 transform/rot = 18.3077
-polygon = Vector2Array( 215, 95, 300, 95, 299.155, 162.845, 214.892, 158.271 )
+polygon = Vector2Array( 215, 95, 300, 95, 299.155, 162.845, 214.787, 158.265 )
 uv = Vector2Array( 215, 95, 300, 95, 300, 160, 215, 160 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -492,7 +492,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( 5, 43 )
 transform/rot = -32.5419
-polygon = Vector2Array( 218.373, 295.558, 291.43, 255.309, 299.635, 352.213, 215.812, 342.015 )
+polygon = Vector2Array( 216.795, 296.427, 291.43, 255.309, 299.635, 352.213, 215.52, 341.979 )
 uv = Vector2Array( 215, 284, 300, 266, 300, 348, 215, 348 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -509,7 +509,7 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( 12, 64 )
 transform/rot = -13.1665
-polygon = Vector2Array( 215.514, 353.403, 299.457, 344.239, 290.15, 451.874, 221.913, 418.053 )
+polygon = Vector2Array( 215.251, 353.431, 299.457, 344.239, 280.299, 474.749, 228.826, 407.106 )
 uv = Vector2Array( 215, 348, 300, 348, 300, 429, 215, 429 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -526,7 +526,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -21, 83.001 )
 transform/rot = -52.7304
-polygon = Vector2Array( 219.525, 441.13, 287.762, 407.309, 300, 442, 215, 442 )
+polygon = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 uv = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -548,7 +548,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -4, -57 )
 transform/rot = 74.1633
-polygon = Vector2Array( 66, 284, 104, 284, 90.6136, 351.077, 72.2832, 370.066 )
+polygon = Vector2Array( 66, 284, 104, 284, 90.6136, 351.077, 68.2522, 374.241 )
 uv = Vector2Array( 66, 284, 104, 284, 104, 360, 66, 360 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -565,7 +565,7 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( -0.999969, 65 )
 transform/rot = 92.0198
-polygon = Vector2Array( 76.2807, 354.075, 94.6111, 373.064, 100.823, 411.311, 67.3047, 423.568 )
+polygon = Vector2Array( 72.2497, 349.9, 94.6111, 373.064, 100.823, 411.311, 66.2193, 423.965 )
 uv = Vector2Array( 66, 360, 104, 360, 104, 416, 66, 416 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -582,7 +582,7 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( 6, 56 )
 transform/rot = 40.1731
-polygon = Vector2Array( 69.8851, 409.376, 103.403, 421.633, 104, 456, 66, 456 )
+polygon = Vector2Array( 68.7997, 408.979, 103.403, 421.633, 104, 456, 66, 456 )
 uv = Vector2Array( 66, 416, 104, 416, 104, 456, 66, 456 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
@@ -619,7 +619,7 @@ script/script = ExtResource( 2 )
 __meta__ = { "MessyJointManager":true, "_editor_icon":ExtResource( 3 ) }
 enabled = true
 
-[node name="MessyJoint" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint1" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -628,7 +628,7 @@ child_path = NodePath("../../torso/head")
 parent_weight = 0.828675
 inverse = true
 
-[node name="MessyJoint3" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint2" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -637,7 +637,7 @@ child_path = NodePath("../../torso/thigh_f")
 parent_weight = 0.481349
 inverse = false
 
-[node name="MessyJoint4" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint3" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -646,16 +646,16 @@ child_path = NodePath("../../torso/thigh_f/calf_f")
 parent_weight = 0.526725
 inverse = false
 
-[node name="MessyJoint5" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint4" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
 parent_path = NodePath("../../torso/thigh_f/calf_f")
 child_path = NodePath("../../torso/thigh_f/calf_f/foot_f")
-parent_weight = 0.5
+parent_weight = 1.0
 inverse = false
 
-[node name="MessyJoint6" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint5" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -664,7 +664,7 @@ child_path = NodePath("../../torso/u_arm_f/l_arm_f")
 parent_weight = 0.5
 inverse = false
 
-[node name="MessyJoint7" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint6" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -673,7 +673,7 @@ child_path = NodePath("../../torso/u_arm_f/l_arm_f/hand_f")
 parent_weight = 0.5
 inverse = false
 
-[node name="MessyJoint9" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint7" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -682,16 +682,16 @@ child_path = NodePath("../../torso/thigh_b/calf_b")
 parent_weight = 0.5
 inverse = false
 
-[node name="MessyJoint10" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint8" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
 parent_path = NodePath("../../torso/thigh_b/calf_b")
 child_path = NodePath("../../torso/thigh_b/calf_b/foot_b")
-parent_weight = 0.5
+parent_weight = 1.0
 inverse = false
 
-[node name="MessyJoint11" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint9" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
@@ -700,7 +700,7 @@ child_path = NodePath("../../torso/u_arm_b/l_arm_b")
 parent_weight = 0.5
 inverse = false
 
-[node name="MessyJoint12" type="Node" parent="MessyJointManager"]
+[node name="MessyJoint10" type="Node" parent="MessyJointManager"]
 
 script/script = ExtResource( 4 )
 __meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }

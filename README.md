@@ -76,7 +76,7 @@ If you need to invert this relationship you could check the *Inverse* option of 
 
 `MessyJoint`s also have a *Parent Weight* attribute you can tweak. 1 means only the parent will be deformed by this joint; 0 means the same for the child.
 
-In many cases you'll want to leave it at 0.5 because it's the value producing less distortion. Nonetheless, for joints involving a terminal piece, like torso-head, you may get better results with other values.
+In many cases you'll want to leave it at 0.5 because it's the value producing less distortion. Nonetheless, for joints involving a terminal piece, like torso-head, you may get better results with values near 1. For small terminal child pieces it can be even necessary to do that so they don't degenerate and result in assertion errors about bad polygon in the Godot console.
 
 ## If something goes wrong
 

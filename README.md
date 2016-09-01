@@ -50,11 +50,11 @@ Your character will be composed of pieces arranged in one or more segments. In t
 
 The important thing here is that **every piece must be created as a `Polygon2D` with four vertices, arranged in clockwise order from top-left** so the top edge goes from vertex 0 to 1 and the bottom one from 3 to 2. That doesn't mean you can only create vertical segments; you can still orient a segment in any angle as long as the 3-2 edge of a piece matches the 0-1 edge of the next.
 
-Furthermore, adjacent pieces can have different sizes even at the shared edges. For instance when joining a thigh with a calf, the calf piece may be narrower so you don't need to specify its boundaries as if it were as wide as the thigh. Nonetheless, it's more convenient especially if the edge is oblique because otherwise it get difficult to avoid gaps.
-
 This plugin works on the shared edge between adjacent pieces so you have to respect the segment concept. In other words, **joints involve exactly two pieces, which must have a parent-child relationship in the node hierarchy**.
 
 Had the character view front or back instead of a side one, the arms of the legs, despite in regular tools you'd been able to set it as a whole mesh, both arms or both legs would have needed a separate segment for each.
+
+Furthermore, **adjacent pieces cannot have different sizes at their shared edge**. In other words, for a vertical segment pieces must be perfectly stacked. For instance, when joining a thigh with a calf, the calf piece must be as wide as that of the thigh, leaving as much transparent space at the sides as needed.
 
 As another rule, **the UVs of your polygons must match its position**. The best way of achieving this is by having all the pieces in the same texture or at least each entire segment in its own dedicated texture. Actually this is pretty natural.
 

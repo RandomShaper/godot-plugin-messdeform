@@ -8,6 +8,7 @@ var joint_man
 func _enter_tree():
 	add_custom_type("MessyJoint", "Node", preload("MessyJoint.gd"), preload("MessyJoint.png"))
 	add_custom_type("MessyJointManager", "Node", preload("MessyJointManager.gd"), preload("MessyJointManager.png"))
+	add_custom_type("MessyPolygon", "Polygon2D", preload("MessyPolygon.gd"), preload("MessyPolygon.png"))
 
 	btn_reset = Button.new()
 	btn_reset.set_text("Reset")

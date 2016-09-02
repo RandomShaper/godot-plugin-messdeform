@@ -26,17 +26,18 @@ func update_joints():
 		joint.process_joint(update_data)
 
 	for node in update_data:
-		var new_verts = node.get_polygon()
+		var new_verts = node.get_uv()
 
 		var node_update_data = update_data[node]
 		for idx in node_update_data:
 			new_verts[idx] = node_update_data[idx]
 
-		node.set_polygon(new_verts)
+		node.set_messy_polygon(new_verts)
 
 func set_enabled(new_enabled):
 	if new_enabled:
 		add_child(updater)
+		updater.set_draw_behind_parent(true)
 	else:
 		if updater:
 			remove_child(updater)

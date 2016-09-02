@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://weirdchild.png" type="Texture" id=1]
-[ext_resource path="res://addons/messdeform/MessyJointManager.gd" type="Script" id=2]
-[ext_resource path="res://addons/messdeform/MessyJointManager.png" type="Texture" id=3]
-[ext_resource path="res://addons/messdeform/MessyJoint.gd" type="Script" id=4]
-[ext_resource path="res://addons/messdeform/MessyJoint.png" type="Texture" id=5]
+[ext_resource path="res://addons/messdeform/MessyJointManager.gd" type="Script" id=1]
+[ext_resource path="res://addons/messdeform/MessyJointManager.png" type="Texture" id=2]
+[ext_resource path="res://addons/messdeform/MessyJoint.gd" type="Script" id=3]
+[ext_resource path="res://addons/messdeform/MessyJoint.png" type="Texture" id=4]
+[ext_resource path="res://weirdchild.png" type="Texture" id=5]
+[ext_resource path="res://addons/messdeform/MessyPolygon.gd" type="Script" id=6]
+[ext_resource path="res://addons/messdeform/MessyPolygon.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -342,72 +344,190 @@ tracks/35/keys = { "times":FloatArray( 1, 2 ), "transitions":FloatArray( 1, 1 ),
 
 [node name="weirdchild" type="Node2D"]
 
+[node name="MessyJointManager" type="Node" parent="."]
+
+editor/display_folded = true
+script/script = ExtResource( 1 )
+__meta__ = { "MessyJointManager":true, "_editor_icon":ExtResource( 2 ) }
+enabled = true
+
+[node name="MessyJoint1" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso")
+child_path = NodePath("../../torso/head")
+parent_weight = 0.828675
+inverse = true
+
+[node name="MessyJoint2" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso")
+child_path = NodePath("../../torso/thigh_f")
+parent_weight = 0.481349
+inverse = false
+
+[node name="MessyJoint3" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/thigh_f")
+child_path = NodePath("../../torso/thigh_f/calf_f")
+parent_weight = 0.526725
+inverse = false
+
+[node name="MessyJoint4" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/thigh_f/calf_f")
+child_path = NodePath("../../torso/thigh_f/calf_f/foot_f")
+parent_weight = 1.0
+inverse = false
+
+[node name="MessyJoint5" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/u_arm_f")
+child_path = NodePath("../../torso/u_arm_f/l_arm_f")
+parent_weight = 0.5
+inverse = false
+
+[node name="MessyJoint6" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/u_arm_f/l_arm_f")
+child_path = NodePath("../../torso/u_arm_f/l_arm_f/hand_f")
+parent_weight = 0.5
+inverse = false
+
+[node name="MessyJoint7" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/thigh_b")
+child_path = NodePath("../../torso/thigh_b/calf_b")
+parent_weight = 0.5
+inverse = false
+
+[node name="MessyJoint8" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/thigh_b/calf_b")
+child_path = NodePath("../../torso/thigh_b/calf_b/foot_b")
+parent_weight = 1.0
+inverse = false
+
+[node name="MessyJoint9" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/u_arm_b")
+child_path = NodePath("../../torso/u_arm_b/l_arm_b")
+parent_weight = 0.5
+inverse = false
+
+[node name="MessyJoint10" type="Node" parent="MessyJointManager"]
+
+script/script = ExtResource( 3 )
+__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 4 ) }
+parent_path = NodePath("../../torso/u_arm_b/l_arm_b")
+child_path = NodePath("../../torso/u_arm_b/l_arm_b/hand_b")
+parent_weight = 0.5
+inverse = false
+
 [node name="torso" type="Polygon2D" parent="."]
 
 transform/pos = Vector2( 248, 240 )
-polygon = Vector2Array( 217.632, 167.909, 299.557, 145.65, 301.368, 278.643, 216.461, 273.166 )
+polygon = Vector2Array( 214.438, 157.004, 299.037, 165.103, 299.145, 263.155, 214.989, 284.596 )
 uv = Vector2Array( 215, 160, 300, 160, 300, 266, 215, 284 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -248, -240 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 0.1
+mass_1 = 2.0
+mass_2 = 2.0
+mass_3 = 0.1
 
 [node name="u_arm_b" type="Polygon2D" parent="torso"]
 
 visibility/behind_parent = true
 transform/pos = Vector2( -4, -57 )
-transform/rot = -86.3537
-polygon = Vector2Array( 406, 284, 444, 284, 442.103, 355.365, 405.42, 363.422 )
+transform/rot = -29.2172
+polygon = Vector2Array( 406, 284, 444, 284, 438.747, 352.14, 405.491, 366.869 )
 uv = Vector2Array( 406, 284, 444, 284, 444, 360, 406, 360 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -422, -299 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_edit_ik_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="l_arm_b" type="Polygon2D" parent="torso/u_arm_b"]
 
 transform/pos = Vector2( -1, 65 )
-transform/rot = 24.7773
-polygon = Vector2Array( 407.096, 356.946, 443.78, 365.004, 444.081, 419.618, 407.309, 411.829 )
+transform/rot = 47.7784
+polygon = Vector2Array( 408.453, 354.443, 441.709, 369.172, 443.802, 415.293, 405.852, 416.889 )
 uv = Vector2Array( 406, 360, 444, 360, 444, 416, 406, 416 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -421, -364 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="hand_b" type="Polygon2D" parent="torso/u_arm_b/l_arm_b"]
 
 transform/pos = Vector2( 6, 56 )
-transform/rot = -23.9188
-polygon = Vector2Array( 405.687, 420.514, 442.459, 412.725, 444, 456, 406, 456 )
+transform/rot = 4.81606
+polygon = Vector2Array( 406.188, 415.125, 444.138, 416.721, 444, 456, 406, 456 )
 uv = Vector2Array( 406, 416, 444, 416, 444, 456, 406, 456 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -427, -420 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="fingers_b" type="Position2D" parent="torso/u_arm_b/l_arm_b/hand_b"]
 
@@ -418,53 +538,68 @@ __meta__ = { "_edit_bone_":true }
 
 visibility/behind_parent = true
 transform/pos = Vector2( 5, 43 )
-transform/rot = 79.9987
-polygon = Vector2Array( 236.786, 286.978, 276.94, 286.978, 288.742, 364.857, 225.832, 320.191 )
+transform/rot = 40.7193
+polygon = Vector2Array( 236.786, 286.978, 276.94, 286.978, 293.331, 362.255, 221.451, 326.089 )
 uv = Vector2Array( 236.786, 286.978, 276.94, 286.978, 300, 348, 215, 348 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -253, -285 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_edit_ik_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 0.1
+mass_1 = 0.1
+mass_2 = 1.01564
+mass_3 = 0.9707
 
 [node name="calf_b" type="Polygon2D" parent="torso/thigh_b"]
 
 transform/pos = Vector2( 12, 64 )
-transform/rot = -70.7495
-polygon = Vector2Array( 224.888, 376.48, 287.798, 331.814, 299.96, 428.336, 214.966, 429.345 )
+transform/rot = -53.4176
+polygon = Vector2Array( 220.648, 370.315, 292.528, 334.15, 299.129, 442.287, 216.525, 422.248 )
 uv = Vector2Array( 215, 348, 300, 348, 300, 429, 215, 429 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -265, -349 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="foot_b" type="Polygon2D" parent="torso/thigh_b/calf_b"]
 
-transform/pos = Vector2( -21.0002, 83.0003 )
-transform/rot = 0.680202
+transform/pos = Vector2( -21.0001, 83.0002 )
+transform/rot = -13.6362
 polygon = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 uv = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 color = Color( 0.8, 0.8, 0.8, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -244, -432 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="toes_b" type="Position2D" parent="torso/thigh_b/calf_b/foot_b"]
 
@@ -474,70 +609,90 @@ __meta__ = { "_edit_bone_":true }
 [node name="head" type="Polygon2D" parent="torso"]
 
 transform/pos = Vector2( -2, -87 )
-transform/rot = 18.3077
-polygon = Vector2Array( 215, 95, 300, 95, 299.155, 162.845, 214.787, 158.265 )
+transform/rot = -6.59746
+polygon = Vector2Array( 215, 95, 300, 95, 300.077, 158.929, 215.159, 160.603 )
 uv = Vector2Array( 215, 95, 300, 95, 300, 160, 215, 160 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -246, -153 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="thigh_f" type="Polygon2D" parent="torso"]
 
 transform/pos = Vector2( 5, 43 )
-transform/rot = -32.5419
-polygon = Vector2Array( 216.795, 296.427, 291.43, 255.309, 299.635, 352.213, 215.52, 341.979 )
+transform/rot = 4.85486
+polygon = Vector2Array( 214.987, 283.374, 300.659, 269.132, 297.478, 357.849, 217.626, 333.622 )
 uv = Vector2Array( 215, 284, 300, 266, 300, 348, 215, 348 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -253, -285 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_edit_ik_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 0.1
+mass_1 = 0.1
+mass_2 = 2.0
+mass_3 = 0.9953
 
 [node name="calf_f" type="Polygon2D" parent="torso/thigh_f"]
 
 transform/pos = Vector2( 12, 64 )
-transform/rot = -13.1665
-polygon = Vector2Array( 215.251, 353.431, 299.457, 344.239, 280.299, 474.749, 228.826, 407.106 )
+transform/rot = -31.9989
+polygon = Vector2Array( 216.845, 361.017, 297.232, 339.294, 291.196, 462.292, 222.22, 412.619 )
 uv = Vector2Array( 215, 348, 300, 348, 300, 429, 215, 429 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -265, -349 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="foot_f" type="Polygon2D" parent="torso/thigh_f/calf_f"]
 
-transform/pos = Vector2( -21, 83.001 )
-transform/rot = -52.7304
+transform/pos = Vector2( -21.0001, 83.0009 )
+transform/rot = -35.7591
 polygon = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 uv = Vector2Array( 215, 429, 300, 429, 300, 442, 215, 442 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -244, -432 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="toes_f" type="Position2D" parent="torso/thigh_f/calf_f/foot_f"]
 
@@ -547,53 +702,68 @@ __meta__ = { "_edit_bone_":true }
 [node name="u_arm_f" type="Polygon2D" parent="torso"]
 
 transform/pos = Vector2( -4, -57 )
-transform/rot = 74.1633
-polygon = Vector2Array( 66, 284, 104, 284, 90.6136, 351.077, 68.2522, 374.241 )
+transform/rot = 29.9289
+polygon = Vector2Array( 66, 284, 104, 284, 93.7372, 350.844, 66.9443, 371.745 )
 uv = Vector2Array( 66, 284, 104, 284, 104, 360, 66, 360 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -83, -299 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true, "_edit_ik_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_edit_ik_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="l_arm_f" type="Polygon2D" parent="torso/u_arm_f"]
 
 transform/pos = Vector2( -0.999969, 65 )
-transform/rot = 92.0198
-polygon = Vector2Array( 72.2497, 349.9, 94.6111, 373.064, 100.823, 411.311, 66.2193, 423.965 )
+transform/rot = 75.9148
+polygon = Vector2Array( 70.824, 351.282, 97.6169, 372.183, 102.858, 413.421, 65.6937, 419.873 )
 uv = Vector2Array( 66, 360, 104, 360, 104, 416, 66, 416 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -82, -364 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="hand_f" type="Polygon2D" parent="torso/u_arm_f/l_arm_f"]
 
 transform/pos = Vector2( 6, 56 )
-transform/rot = 40.1731
-polygon = Vector2Array( 68.7997, 408.979, 103.403, 421.633, 104, 456, 66, 456 )
+transform/rot = 19.6982
+polygon = Vector2Array( 67.0419, 412.361, 104.206, 418.814, 104, 456, 66, 456 )
 uv = Vector2Array( 66, 416, 104, 416, 104, 456, 66, 456 )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = ColorArray(  )
 offset = Vector2( -88, -420 )
-texture/texture = ExtResource( 1 )
+texture/texture = ExtResource( 5 )
 texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
+texture/scale = Vector2( 512, 512 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
-__meta__ = { "_edit_bone_":true }
+script/script = ExtResource( 6 )
+__meta__ = { "MessyPolygon":true, "MessyPolygon2D":true, "_edit_bone_":true, "_editor_icon":ExtResource( 7 ) }
+mass_0 = 1
+mass_1 = 1
+mass_2 = 1
+mass_3 = 1
 
 [node name="fingers_f" type="Position2D" parent="torso/u_arm_f/l_arm_f/hand_f"]
 
@@ -612,101 +782,5 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "walk"
-
-[node name="MessyJointManager" type="Node" parent="."]
-
-script/script = ExtResource( 2 )
-__meta__ = { "MessyJointManager":true, "_editor_icon":ExtResource( 3 ) }
-enabled = true
-
-[node name="MessyJoint1" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso")
-child_path = NodePath("../../torso/head")
-parent_weight = 0.828675
-inverse = true
-
-[node name="MessyJoint2" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso")
-child_path = NodePath("../../torso/thigh_f")
-parent_weight = 0.481349
-inverse = false
-
-[node name="MessyJoint3" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/thigh_f")
-child_path = NodePath("../../torso/thigh_f/calf_f")
-parent_weight = 0.526725
-inverse = false
-
-[node name="MessyJoint4" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/thigh_f/calf_f")
-child_path = NodePath("../../torso/thigh_f/calf_f/foot_f")
-parent_weight = 1.0
-inverse = false
-
-[node name="MessyJoint5" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/u_arm_f")
-child_path = NodePath("../../torso/u_arm_f/l_arm_f")
-parent_weight = 0.5
-inverse = false
-
-[node name="MessyJoint6" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/u_arm_f/l_arm_f")
-child_path = NodePath("../../torso/u_arm_f/l_arm_f/hand_f")
-parent_weight = 0.5
-inverse = false
-
-[node name="MessyJoint7" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/thigh_b")
-child_path = NodePath("../../torso/thigh_b/calf_b")
-parent_weight = 0.5
-inverse = false
-
-[node name="MessyJoint8" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/thigh_b/calf_b")
-child_path = NodePath("../../torso/thigh_b/calf_b/foot_b")
-parent_weight = 1.0
-inverse = false
-
-[node name="MessyJoint9" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/u_arm_b")
-child_path = NodePath("../../torso/u_arm_b/l_arm_b")
-parent_weight = 0.5
-inverse = false
-
-[node name="MessyJoint10" type="Node" parent="MessyJointManager"]
-
-script/script = ExtResource( 4 )
-__meta__ = { "MessyJoint":true, "_editor_icon":ExtResource( 5 ) }
-parent_path = NodePath("../../torso/u_arm_b/l_arm_b")
-child_path = NodePath("../../torso/u_arm_b/l_arm_b/hand_b")
-parent_weight = 0.5
-inverse = false
 
 

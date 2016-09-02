@@ -12,7 +12,9 @@ So currently you can only perform cut-out animation in Godot, which is good for 
 
 ## The project
 
-*MessDeform* is a plugin for Godot that abuses the `Polygon2D` node type trying to work with a number of them as if they formed a true 2D mesh. By doing what it achieves continuity of the character image at the joints, where the cut-out technique would disrupt them. 
+*MessDeform* is a plugin for Godot that abuses the `Polygon2D` node type trying to work with a number of them as if they formed a true 2D mesh. By doing what it achieves continuity of the character image at the joints, where the cut-out technique would disrupt them.
+
+Also it improves `Polygon2D` triangularization so instead of building it as a triangle fan it renders a triangle strip around the baricenter for less distortion.
 
 Obviously, *MessDeform* cannot overcome the limitations imposed by the lack of a true deformation system so its results are far from perfect. Anyway for ceratin use case it does the trick: very soft bodies, environments in which the lighting helps in hiding the distortion, etc.
 
@@ -48,7 +50,7 @@ Your character will be composed of pieces arranged in one or more segments. In t
 </tr>
 </table>
 
-The important thing here is that **every piece must be created as a `Polygon2D` with four vertices, arranged in clockwise order from top-left** so the top edge goes from vertex 0 to 1 and the bottom one from 3 to 2. That doesn't mean you can only create vertical segments; you can still orient a segment in any angle as long as the 3-2 edge of a piece matches the 0-1 edge of the next.
+The important thing here is that **every piece must be created as a `MessyPolygon` (a derivation of `Polygon2D`) with four vertices, arranged in clockwise order from top-left** so the top edge goes from vertex 0 to 1 and the bottom one from 3 to 2. That doesn't mean you can only create vertical segments; you can still orient a segment in any angle as long as the 3-2 edge of a piece matches the 0-1 edge of the next.
 
 This plugin works on the shared edge between adjacent pieces so you have to respect the segment concept. In other words, **joints involve exactly two pieces, which must have a parent-child relationship in the node hierarchy**.
 
@@ -74,9 +76,15 @@ If you need to invert this relationship you could check the *Inverse* option of 
 
 ### 4. Adjusting weights
 
+#### Joints
+
 `MessyJoint`s also have a *Parent Weight* attribute you can tweak. 1 means only the parent will be deformed by this joint; 0 means the same for the child.
 
 In many cases you'll want to leave it at 0.5 because it's the value producing less distortion. Nonetheless, for joints involving a terminal piece, like torso-head, you may get better results with values near 1. For small terminal child pieces it can be even necessary to do that so they don't degenerate and result in assertion errors about bad polygon in the Godot console.
+
+#### Polygons
+
+`MessyPolygon` has a weight setting for each vertex. With those you can control where the baricenter of the triangulated polygon will be. That way you can ponderate texture deformation across the polygon to reduce it on the worst cases. Furthermore, you can even keyframe these values for a fine-grained control, though not usually necessary.
 
 ## If something goes wrong
 
@@ -86,4 +94,4 @@ If for any reason the engine started deforming the character in strange ways and
 
 If some piece stops being managed by *MessDeform* because you pick another one for a `MessyJoint` or you simply remove the joint without having reseted the character posture, you will be left with a semi-permanent deformed state.
 
-The easiest way of recovering its original geometry is to select the ruined `Polygon2D` and opening the UV editor (*UV* button in the editor toolbar). Then pick *Edit -> UV to Polygon*. That will serve as an effective recovery of the original data.
+The easiest way of recovering its original geometry is to select the ruined `MessyPolygon` and opening the UV editor (*UV* button in the editor toolbar). Then pick *Edit -> UV to Polygon*. That will serve as an effective recovery of the original data.

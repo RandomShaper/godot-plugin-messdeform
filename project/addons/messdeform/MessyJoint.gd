@@ -52,13 +52,11 @@ func reset():
 
 	if parent_path:
 		parent = get_node(parent_path)
-		parent.set_polygon(parent.get_uv())
 	else:
 		parent = null
 
 	if child_path:
 		child = get_node(child_path)
-		child.set_polygon(child.get_uv())
 	else:
 		child = null
 
@@ -67,6 +65,9 @@ func reset():
 		if !node || !node.is_type("Polygon2D"):
 			print(get_name(), " is not correctly set up")
 			return
+
+	parent.set_polygon(parent.get_uv())
+	child.set_polygon(child.get_uv())
 
 	parent_sgmt.clear()
 	child_sgmt.clear()

@@ -8,6 +8,9 @@ var updater = Updater.new(self)
 func _enter_tree():
 	set_meta("MessyJointManager", true)
 
+func _ready():
+	update_enabled()
+
 func get_joints():
 	var joints = []
 	for child in get_children():
@@ -42,7 +45,17 @@ func set_enabled(new_enabled):
 		if updater:
 			remove_child(updater)
 		reset_joints()
+
 	enabled = new_enabled
+	update_enabled()
+
+func update_enabled():
+	for joint in get_joints():
+		# Should be done by the joint class
+		if joint.parent:
+			joint.parent.set_enabled(enabled)
+		if joint.child:
+			joint.child.set_enabled(enabled)
 
 class Updater extends Node2D:
 	var joint_man

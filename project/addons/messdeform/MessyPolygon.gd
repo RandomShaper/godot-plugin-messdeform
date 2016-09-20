@@ -8,7 +8,7 @@ export(float, 0.1, 2, 0.1) var mass_3 = 1.0
 
 onready var in_editor = get_tree().is_editor_hint()
 
-onready var enabled = true
+var enabled
 
 var polygon
 var scaled_uv # If called "uv", base would be assisgned
@@ -16,25 +16,29 @@ var uv_center
 
 func _enter_tree():
 	set_meta("MessyPolygon2D", true)
+	enabled = false
 
 func _ready():
 	reset()
 
 func set_enabled(enabled):
 	self.enabled = enabled
-	print(get_name(), " ", enabled)
+	reset()
 	update()
 
 func reset():
-	# Inhibit base Polygon2D draw (hidden would prevent custom drawing)
-	set_polygon(Vector2Array())
-	normalize_uv()
-	if !get_texture():
-		uv_center = Vector2()
+	if enabled:
+		# Inhibit base Polygon2D draw (hidden would prevent custom drawing)
+		set_polygon(Vector2Array())
+		normalize_uv()
+		if !get_texture():
+			uv_center = Vector2()
+		else:
+			uv_center = compute_center(get_uv(), [ mass_0, mass_1, mass_2, mass_3 ])
+			var inv_tex_size = Vector2(1 / get_texture().get_size().x, 1 / get_texture().get_size().y)
+			uv_center *= inv_tex_size
 	else:
-		uv_center = compute_center(get_uv(), [ mass_0, mass_1, mass_2, mass_3 ])
-		var inv_tex_size = Vector2(1 / get_texture().get_size().x, 1 / get_texture().get_size().y)
-		uv_center *= inv_tex_size
+		set_polygon(get_uv())
 
 func set_messy_polygon(polygon):
 	self.polygon = polygon
@@ -79,7 +83,6 @@ func compute_center(points, weights = null):
 func normalize_uv():
 	if !get_texture():
 		return
-
 	scaled_uv = Vector2Array()
 	var original_uv = get_uv()
 	var inv_tex_size = Vector2(1 / get_texture().get_size().x, 1 / get_texture().get_size().y)

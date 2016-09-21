@@ -42,7 +42,7 @@ func set_enabled(new_enabled):
 		add_child(updater)
 		updater.set_draw_behind_parent(true)
 	else:
-		if updater:
+		if updater.get_parent() != null:
 			remove_child(updater)
 		reset_joints()
 

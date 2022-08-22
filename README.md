@@ -1,4 +1,4 @@
-# MessDeform: Hacky deformable mesh engine for Godot
+# ~MessDeform: Hacky deformable mesh engine for Godot~ [Deprecated]
 
 ## Motivation
 
